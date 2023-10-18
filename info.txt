@@ -1,0 +1,28 @@
+App "core":
+HU1: Portada con Opciones de Acceso para Usuario
+
+App "autenticacion":
+HU2: Iniciar Sesión para Trabajador
+
+App "usuarios":
+HU8: Crear Usuarios para Administrador
+HU9: Eliminar Usuarios para Administrador
+HU10: Visualizar Menú de Administrador para Administrador
+
+App "pacientes":
+HU3: Crear Ficha de Paciente para Recepcionista
+HU4: Modificar Datos del Paciente para Recepcionista
+HU6: Visualizar Horas y Historial del Paciente para Médico
+
+App "citas":
+HU5: Registrar Hora Médica para Recepcionista
+HU7: Ingresar Síntomas y Observaciones para Médico
+HU11: Agendar Horas de Médico Veterinario para Administrador
+
+App "diagnostico":
+HU12: Diagnóstico con IA
+
+
+
+git init
+git remote add origin https://github.com/FCO0001/Veterinaria_AyudaAnimal.git
