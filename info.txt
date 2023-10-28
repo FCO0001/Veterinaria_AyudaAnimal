@@ -24,5 +24,16 @@ HU12: Diagnóstico con IA
 
 
 
+
+
+git config --global user.name "FCO0001"
+git config --global user.email "fcarrasco968@gmail.com"
+
+
 git init
 git remote add origin https://github.com/FCO0001/Veterinaria_AyudaAnimal.git
+git commit -m "ESTRUCTURA DEL PROYECTO EN DJANGO"
+
+
+
+

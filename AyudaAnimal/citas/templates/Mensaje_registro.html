@@ -1,0 +1,48 @@
+
+
+
+
+{% load widget_tweaks %}
+
+
+{% block container %}
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="page-header">
+            <h1>Agendar Consulta</h1>
+        </div>
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            <fieldset>
+                    <label for="{{ form.paciente.auto_id }}" class="col-md-3 control-label">
+                    {{ form.Paciente.label }}</label>
+                    <div class="col-md-9">
+                      {% render_field form.Paciente class="form-control" %}
+                    </div>
+                  
+                  <label for="{{ form.medico.auto_id }}" class="col-md-3 control-label">
+                  {{ form.medico.label }}</label>
+                  <div class="col-md-9">
+                    {% render_field form.medico class="form-control" %}
+
+                  </div>
+                
+                  <label for="{{ form.dia.auto_id }}" class="col-md-3 control-label">
+                  {{ form.dia.label }}</label>
+                  <div class="col-md-9">
+                    {% render_field form.dia type="date" class="form-control" placeholder="01/01/2022" %}
+                  </div>
+                
+                  <label for="{{ form.horario.auto_id }}" class="col-md-3 control-label">
+                  {{ form.horario.label }}</label>
+                  <div class="col-md-9">
+                    {% render_field form.horario class="form-control" %}
+                  </div>
+                  <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-primary">AGENDAR</button>
+                  </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}
