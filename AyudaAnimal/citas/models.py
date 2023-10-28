@@ -22,11 +22,11 @@ class Cita_con_medico(models.Model):
     Paciente = models.CharField(max_length=255)
     dia = models.DateField(help_text="Introduzca una fecha para la cita", validators=[validar_dia],default=date.today)
     HORARIOS = (
-        ("1", "07:00 ás 08:00"),
-        ("2", "08:00 ás 09:00"),
-        ("3", "09:00 ás 10:00"),
-        ("4", "10:00 ás 11:00"),
-        ("5", "11:00 ás 12:00"),
+        ("1", "07:00 AM a 08:00 AM"),
+        ("2", "08:00 AM a 09:00 AM"),
+        ("3", "09:00 AM a 10:00 AM"),
+        ("4", "10:00 AM a 11:00 AM"),
+        ("5", "11:00 AM a 12:00 PM"),
     )
     horario = models.CharField(max_length=10, choices=HORARIOS,default=date.today)
     

@@ -1,48 +1,77 @@
 
-
-
-
 {% load widget_tweaks %}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 
-{% block container %}
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="page-header">
-            <h1>Agendar Consulta</h1>
-        </div>
-        <form class="form-horizontal" method="post">
-            {% csrf_token %}
-            <fieldset>
-                    <label for="{{ form.paciente.auto_id }}" class="col-md-3 control-label">
-                    {{ form.Paciente.label }}</label>
+      
+  {% block container %}
+  <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+          <div class="page-header">
+              <h1>Agendar Consulta</h1>
+          </div>
+          <form class="form-horizontal" method="post">
+              {% csrf_token %}
+              <fieldset>
+                      <label for="{{ form.paciente.auto_id }}" class="col-md-3 control-label">
+                      {{ form.Paciente.label }}</label>
+                      <div class="col-md-9">
+                        {% render_field form.Paciente class="form-control" %}
+                      </div>
+                    
+                    <label for="{{ form.medico.auto_id }}" class="col-md-3 control-label">
+                    {{ form.medico.label }}</label>
                     <div class="col-md-9">
-                      {% render_field form.Paciente class="form-control" %}
+                      {% render_field form.medico class="form-control" %}
+  
                     </div>
                   
-                  <label for="{{ form.medico.auto_id }}" class="col-md-3 control-label">
-                  {{ form.medico.label }}</label>
-                  <div class="col-md-9">
-                    {% render_field form.medico class="form-control" %}
+                    <label for="{{ form.dia.auto_id }}" class="col-md-3 control-label">
+                    {{ form.dia.label }}</label>
+                    <div class="col-md-9">
+                      {% render_field form.dia type="date" class="form-control" placeholder="01/01/2022" %}
+                    </div>
+                  
+                    <label for="{{ form.horario.auto_id }}" class="col-md-3 control-label">
+                    {{ form.horario.label }}</label>
+                    <div class="col-md-9">
+                      {% render_field form.horario class="form-control" %}
+                    </div>
+                    <div class="col-md-9 col-md-offset-3">
+                      <br>
+                      <button type="submit" class="btn btn-primary">AGENDAR</button>
+                    </div>
+              </fieldset>
+          </form>
+      </div>
+  </div>
+  <br>
+  {% endblock %}
+  {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+    {% endfor %}
+{% endif %}
 
-                  </div>
-                
-                  <label for="{{ form.dia.auto_id }}" class="col-md-3 control-label">
-                  {{ form.dia.label }}</label>
-                  <div class="col-md-9">
-                    {% render_field form.dia type="date" class="form-control" placeholder="01/01/2022" %}
-                  </div>
-                
-                  <label for="{{ form.horario.auto_id }}" class="col-md-3 control-label">
-                  {{ form.horario.label }}</label>
-                  <div class="col-md-9">
-                    {% render_field form.horario class="form-control" %}
-                  </div>
-                  <div class="col-md-9 col-md-offset-3">
-                    <button type="submit" class="btn btn-primary">AGENDAR</button>
-                  </div>
-            </fieldset>
-        </form>
-    </div>
-</div>
-{% endblock %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+    
+
+
+

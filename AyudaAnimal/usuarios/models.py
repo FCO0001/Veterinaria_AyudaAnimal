@@ -5,5 +5,8 @@ from django.db import models
 class Medico(models.Model):
     nombre = models.CharField(max_length=200, default="juanito")
     
+    def __str__(self):
+        return self.nombre
+    
 
     
