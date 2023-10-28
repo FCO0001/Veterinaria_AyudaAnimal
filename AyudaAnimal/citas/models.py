@@ -4,6 +4,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.db.models.fields.related import ForeignKey
 from usuarios.models import Medico
+from pacientes.models import pacientes
 
 
 def validar_dia(value):
@@ -19,7 +20,7 @@ def validar_dia(value):
 
 class Cita_con_medico(models.Model):
     medico = ForeignKey(Medico, on_delete=models.CASCADE, related_name='Horas_medicos')
-    Paciente = models.CharField(max_length=255)
+    Paciente = ForeignKey(pacientes,on_delete=models.CASCADE,related_name='Pacientes_medicos')
     dia = models.DateField(help_text="Introduzca una fecha para la cita", validators=[validar_dia],default=date.today)
     HORARIOS = (
         ("1", "07:00 AM a 08:00 AM"),
