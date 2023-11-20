@@ -14,7 +14,7 @@ def vista_formulario_cita(request):
 
     else:
         form = formulario_cita_medico()
-    return render(request, 'Mensaje_registro.html', {'form': form})
+    return render(request, 'Parciales/Mensaje_registro.html', {'form': form})
 
 
 

@@ -1,19 +1,17 @@
 
+{% extends 'base.html' %}
+
+{% load static %}
 {% load widget_tweaks %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
 
-      
-  {% block container %}
+
+{% block content %}
+  <!-- Todo el contenido HTML que actualmente tienes debe ir aquí dentro -->
+  <!-- Asegúrate de no duplicar las etiquetas html, head o body ya que estas deberían estar en base.html -->
+
   <div class="row">
+    <div class="row">
       <div class="col-md-8 col-md-offset-2">
           <div class="page-header">
               <h1>Agendar Consulta</h1>
@@ -53,25 +51,34 @@
           </form>
       </div>
   </div>
-  <br>
-  {% endblock %}
+  </div>
+
+  <!-- Mensajes de Django -->
   {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true"></span>
-            </button>
-        </div>
-    {% endfor %}
-{% endif %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"></span>
+        </button>
+    </div>
+  {% endfor %}
+  {% endif %}
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
-    
+  {% block scripts %}
+  {{ block.super }}
+  <!-- Incluir jQuery y Popper.js desde un CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <!-- Incluir Bootstrap JS desde un CDN -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+  <!-- Añadir aquí otros scripts que necesites, si los tienes locales, usa {% static 'path/to/your/script.js' %} -->
+{% endblock scripts %}
+
+
+  
+
+{% endblock content %}
 
 
