@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'citas',
     'widget_tweaks',
     'usuarios',
-    'pacientes'
+    'pacientes',
 ]
 
 MIDDLEWARE = [

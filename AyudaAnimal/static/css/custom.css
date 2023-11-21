@@ -1,0 +1,46 @@
+
+.contenedor-contenido{
+  margin-left: 250px; 
+  margin-right: 50px;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+}
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+}
+.content-wrapper {
+  flex: 1;
+  padding-top: 70px;
+  margin-left: 250px; 
+  margin-right: 50px;
+}
+.footer {
+  height: 50px; /* Ajusta esto a la altura de tu footer */
+  margin-top: auto;
+  z-index: 2;
+  width: 100%;
+
+}
+.sidebar {
+  position: fixed;
+  top: 70px; /* Ajusta esto si la altura de tu navbar es diferente */
+  left: 0;
+  width: 250px; /* Ajusta esto si el ancho de tu sidebar es diferente */
+  bottom: 50px; /* Asegura que el sidebar no se extienda más allá del contenido */
+  overflow-y: auto;
+  padding-bottom: 50px; /* Añade un espacio al final del sidebar para el footer */
+}
+#sidebar {
+  z-index: 1;
+}
+
+.main-content {
+  margin-left: 250px; /* Ajusta este valor al ancho de tu sidebar */
+  padding: 20px;
+
+}
