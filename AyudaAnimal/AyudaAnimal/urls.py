@@ -26,5 +26,6 @@ urlpatterns = [
     path('citas/Mensaje_registro/', include('citas.urls')),
     path('login/', auth_views.LoginView.as_view(), name="login"),
     path('login/',include('citas.urls')),
+    path('paciente/', include('pacientes.urls'))
      #re_path(r'^$', RedirectView.as_view(url='/citas/', permanent=True)),
 ]

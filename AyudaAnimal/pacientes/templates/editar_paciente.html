@@ -1,5 +1,4 @@
-
-{% extends 'base.html' %}
+{% extends 'base_recepcionista.html' %}
 
 {% load static %}
 {% load widget_tweaks %}
@@ -7,32 +6,49 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<h1>Agendar Consulta</h1>
+<h1>Editar paciente</h1>
 <br>
 <form class="form-horizontal" method="post">
     {% csrf_token %}
+
     <div class="form-group">
-        <label for="{{ form.mascota.id_for_label }}" class="control-label">
-        {{ form.Mascota.label }}</label>
-        {% render_field form.Mascota class="form-control" %}
+        <label for="exampleInputUsername1">Nombre Mascota</label>
+        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="">
     </div>
+
     <div class="form-group">
-        <label for="{{ form.medico.id_for_label }}" class="control-label">
-        {{ form.medico.label }}</label>
-        {% render_field form.medico class="form-control" %}
+        <label for="" class="control-label">
+        Especie</label>
+        <select name="Paciente" class="form-control" required="" id="id_Paciente">
+            <option value="" selected="">---------</option>
+            <option value="1">Gato</option>
+            <option value="1">Perro</option>
+            <option value="1">Exótico</option>
+        </select>
     </div>
+
     <div class="form-group">
-        <label for="{{ form.dia.id_for_label }}" class="control-label">
-        {{ form.dia.label }}</label>
-        {% render_field form.dia type="date" class="form-control" %}
+        <label for="exampleInputUsername1">Raza</label>
+        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="">
     </div>
+
     <div class="form-group">
-        <label for="{{ form.horario.id_for_label }}" class="control-label">
-        {{ form.horario.label }}</label>
-        {% render_field form.horario class="form-control" %}
+        <label for="exampleInputUsername1">Edad</label>
+        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="">
     </div>
+
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Agendar</button>
+        <label for="exampleInputUsername1">Nombre Dueño</label>
+        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputUsername1">RUN Dueño</label>
+        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="">
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Ingresar paciente</button>
     </div>
 </form>
 
