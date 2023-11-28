@@ -74,4 +74,3 @@ class FacturaForm(forms.ModelForm):
             'detalles': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
             'total': forms.NumberInput(attrs={'class': 'form-control'}),
         }
-

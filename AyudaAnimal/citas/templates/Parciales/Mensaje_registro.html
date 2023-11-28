@@ -4,67 +4,60 @@
 {% load static %}
 {% load widget_tweaks %}
 
-
 {% block content %}
-{% if user.is_authenticated %}
-<h1>Agendar Consulta</h1>
-<br>
-<form class="form-horizontal" method="post">
-    {% csrf_token %}
-    <div class="form-group">
-        <label for="{{ form.mascota.id_for_label }}" class="control-label">
-        {{ form.Mascota.label }}</label>
-        {% render_field form.Mascota class="form-control" %}
-    </div>
-    <div class="form-group">
-        <label for="{{ form.medico.id_for_label }}" class="control-label">
-        {{ form.medico.label }}</label>
-        {% render_field form.medico class="form-control" %}
-    </div>
-    <div class="form-group">
-        <label for="{{ form.dia.id_for_label }}" class="control-label">
-        {{ form.dia.label }}</label>
-        {% render_field form.dia type="date" class="form-control" %}
-    </div>
-    <div class="form-group">
-        <label for="{{ form.horario.id_for_label }}" class="control-label">
-        {{ form.horario.label }}</label>
-        {% render_field form.horario class="form-control" %}
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Agendar</button>
-    </div>
-</form>
+      <h1>Agendar Consulta</h1>
+      <br>
+      <form class="form-horizontal" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+              <label for="{{ form.paciente.id_for_label }}" class="control-label">
+              {{ form.Paciente.label }}</label>
+              {% render_field form.Paciente class="form-control" %}
+          </div>
+          <div class="form-group">
+              <label for="{{ form.medico.id_for_label }}" class="control-label">
+              {{ form.medico.label }}</label>
+              {% render_field form.medico class="form-control" %}
+          </div>
+          <div class="form-group">
+              <label for="{{ form.dia.id_for_label }}" class="control-label">
+              {{ form.dia.label }}</label>
+              {% render_field form.dia type="date" class="form-control" %}
+          </div>
+          <div class="form-group">
+              <label for="{{ form.horario.id_for_label }}" class="control-label">
+              {{ form.horario.label }}</label>
+              {% render_field form.horario class="form-control" %}
+          </div>
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary">Agendar</button>
+          </div>
+      </form>
 
-<!-- Mensajes de Django -->
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-  {{ message }}
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true"></span>
-  </button>
-</div>
-{% endfor %}
-{% endif %}
+  <!-- Mensajes de Django -->
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"></span>
+        </button>
+    </div>
+  {% endfor %}
+  {% endif %}
 
-{% block scripts %}
-{{ block.super }}
-<!-- Incluir jQuery y Popper.js desde un CDN -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<!-- Incluir Bootstrap JS desde un CDN -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  {% block scripts %}
+  {{ block.super }}
+  <!-- Incluir jQuery y Popper.js desde un CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <!-- Incluir Bootstrap JS desde un CDN -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<!-- Añadir aquí otros scripts que necesites, si los tienes locales, usa {% static 'path/to/your/script.js' %} -->
+  <!-- Añadir aquí otros scripts que necesites, si los tienes locales, usa {% static 'path/to/your/script.js' %} -->
 {% endblock scripts %}
-{% else %}
-<h1<>Por favor inicie sesión para ver esta página.</h1>
-{% endif %}
-     
 
 
 {% endblock content %}
-
 
 

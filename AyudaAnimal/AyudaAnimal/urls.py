@@ -18,14 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.urls import path, re_path, include
 from django.views.generic import RedirectView
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('citas/', include('citas.urls')),
     path('citas/Mensaje_registro/', include('citas.urls')),
-    path('login/', auth_views.LoginView.as_view(), name="login"),
-    path('login/',include('citas.urls')),
-    path('paciente/', include('pacientes.urls'))
+    path('usuarios/', include('usuarios.urls')),
+    path('diagnostico/', include('diagnostico.urls')),
      #re_path(r'^$', RedirectView.as_view(url='/citas/', permanent=True)),
 ]
+

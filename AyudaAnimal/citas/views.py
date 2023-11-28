@@ -10,7 +10,7 @@ def vista_formulario_cita(request):
         if form.is_valid():
             cita = form.save()
             messages.success(request, f"Cita agendada con éxito")
-            messages.success(request, f"Dueño de la mascota: {cita.mascota}, Medico veterinario: {cita.medico}, Para el dia: {cita.dia}, Horario de:{cita.get_horario_display()}")
+            messages.success(request, f"Dueño de la mascota: {cita.Paciente}, Medico veterinario: {cita.medico}, Para el dia: {cita.dia}, Horario de:{cita.get_horario_display()}")
             return redirect('Mensaje_registro')
 
     else:
