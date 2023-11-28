@@ -1,0 +1,57 @@
+{% extends 'base-usuarios.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <h1>Gestionar Horarios</h1>
+    <br>
+    <form class="form-horizontal" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.medico.id_for_label }}" class="control-label">
+            {{ form.medico.label }}</label>
+            {% render_field form.medico class="form-control" %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.fecha.id_for_label }}" class="control-label">
+            {{ form.fecha.label }}</label>
+            {% render_field form.fecha type="date" class="form-control" %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.hora_inicio.id_for_label }}" class="control-label">
+            {{ form.hora_inicio.label }}</label>
+            {% render_field form.hora_inicio type="time" class="form-control" %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.hora_fin.id_for_label }}" class="control-label">
+            {{ form.hora_fin.label }}</label>
+            {% render_field form.hora_fin type="time" class="form-control" %}
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Guardar Horario</button>
+        </div>
+    </form>
+
+    <!-- Mensajes de Django -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <!-- Incluir jQuery y Popper.js desde un CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Incluir Bootstrap JS desde un CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Aquí podrías añadir otros scripts que necesites -->
+{% endblock scripts %}

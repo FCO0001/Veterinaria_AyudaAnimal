@@ -1,0 +1,54 @@
+{% extends 'base-usuarios.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+  <h1>Eliminar Usuario</h1>
+  <br>
+  <form class="form-horizontal" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+          <label class="control-label">Seleccionar Usuario:</label>
+          <select class="form-control" name="usuario_id" id="usuario_id">
+              {% for tipo, usuarios in usuarios_por_tipo.items %}
+                  <optgroup label="{{ tipo }}">
+                      {% for usuario in usuarios %}
+                          <option value="{{ usuario.id }}">{{ usuario.username }}</option>
+                      {% endfor %}
+                  </optgroup>
+              {% endfor %}
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="password" class="control-label">Confirmar contraseña de administrador:</label>
+          <input type="password" name="password" id="password" class="form-control" required>
+      </div>
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary">Eliminar Usuario</button>
+      </div>
+  </form>
+
+  <!-- Mensajes de Django -->
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true"></span>
+              </button>
+          </div>
+      {% endfor %}
+  {% endif %}
+{% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <!-- Incluir jQuery y Popper.js desde un CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Incluir Bootstrap JS desde un CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Añadir aquí otros scripts que necesites -->
+{% endblock scripts %}

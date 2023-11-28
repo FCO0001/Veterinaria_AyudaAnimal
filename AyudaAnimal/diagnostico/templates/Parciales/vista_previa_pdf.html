@@ -1,0 +1,14 @@
+{% extends 'base-diagnostico.html' %}
+
+{% block content %}
+  <h1>Vista Previa de la Historia Clínica</h1>
+  <!-- Mostrar y permitir la edición de la información -->
+  <!-- Ejemplo para historia clínica: -->
+  <h2>Historia Clínica</h2>
+  <p>{{ historia_clinica.sintomas }}</p>
+  <p>{{ historia_clinica.diagnosticos }}</p>
+  <!-- Repite para los demás elementos como recetas, instrucciones, etc. -->
+
+  <!-- Botón para descargar el PDF -->
+  <a href="{% url 'descargar_pdf' paciente_id=paciente_id %}" class="btn btn-primary">Descargar PDF</a>
+{% endblock %}
